@@ -1,13 +1,11 @@
 """
-Matches translations, considering each book wholistically
-For now this uses a simple string similarity measure
-writes to (and calls) the same files as loadtranslations.py, and should be run after it
+Matches translations; takes the text tables and adds computed fields
 """
 import numpy as np
 import pandas as pd
 import textdistance
 
-RESOLUTION = 0.1  # Controls how far the search looks for a similar line
+RESOLUTION = 0.1  # Percentage of full page to look for the line
 
 file1 = open("static/english.js")
 file2 = open("static/latin.js")
@@ -23,13 +21,12 @@ def similarity(text1, text2):
     """
     return a number
     """
-    return textdistance.jaro_winkler(text1, text2)
+    return textdistance.jaccard(text1, text2)
 
 
 def find_relevant_range(sourcelinenum, sourcedoc, targetdoc):
     """
-    scale the two documents to the same number of lines, and
-    give the place corresponding to source line in target, with a range
+    This accounts for the shift and stretch, and acts as a coarse prior on where we think the relevant lines are
     """
     center = round(sourcelinenum/len(sourcedoc)*len(targetdoc))
     span = round(len(targetdoc)*RESOLUTION)
@@ -41,7 +38,6 @@ def distribution(d1, d2):
     Append new col containing lists of weights representing similarity to each line in relevant range
     Do this for d1[line] -> d2[translation] and d1[translation] -> d2[lines] (both one-to-many)
     Note that this function is not symmetric
-    Working on dictionaries
     """
     for i in range(len(d1)):
         minindex, maxindex = find_relevant_range(i, d1, d2)

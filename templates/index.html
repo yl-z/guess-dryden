@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>guess-dryden line app</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Guess Dryden</title>
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 
-<style>
-
-  svg {
-    background-color: rgb(221, 228, 218);
-    padding: 10%;
-  }
-</style>
-
 <body>
-  <div class="text-center">
-    <button class="btn" id="booknum" type="button" >Previous Book</button>
-    <button class="btn" id="filter-btn" type="button" >View a random line from Aeneid 1</button>    
-    <button class="btn" id="booknum" type="button" >Next Book</button>
+  <!--<div class="nav prevBook">
+    <button>Left</button>
+  </div>-->
+
+  <div class="top bar">
+    <p>Book 1</p>
   </div>
-  <svg width=100% height=1000></svg>
 
+  <div class="canvas">
+    <div class="fromLat translation text">
+    </div>
+    <div class="latin text">
+    </div>
+    <div class="connections">
+      <p>----lines----</p>
+    </div>
+    <div class="english text">
+    </div>
+    <div class="fromEng translation text">
+    </div>
+  </div>
+  
+  <!--<div class="nav nextBook">
+    <button>Right</button>
+  </div>-->
 
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="static/english.js"></script>
-  <script src="static/latin.js"></script>
-  <script src="static/app.js"></script>
+  <script src="../static/English.js"></script>
+  <script src="../static/Latin.js"></script>
+  <script src="../static/script.js"></script>
 
 </body>
 

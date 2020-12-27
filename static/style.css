@@ -20,53 +20,14 @@ body,html {
 }
 
 .text {
-    /*background-color: rgb(190, 253, 232);*/
-    width: auto;
-    padding: 0px 10px 0px 10px;
     text-align: center;
 }
 
-/* for potentially displaying the translated texts used to compute similarity
-    .translation {
-        max-width: 250px;
-    }
-    .fromEng {
-        text-align: left;
-    }
-    .fromLat {
-        text-align: right;
-    }
-    .spotlight {
-        transform: scale(1);
-        text-shadow: 0 0 .02rem;
-    }
-    .saved {
-        color: red;
-    }
-*/
-
-div.line {
+.line {
     margin:0;
-    padding: 5px 0 5px 0;
+    padding: 3px 0 3px 0;
 }
 
-/*
-.dataBar {
-    padding: 0;
-    margin : 10px;
-    background-color: black;
-    height: 5px;
-    text-align: right;
+.lat {
+    padding: 7px 0 7px 0;
 }
-
-.nav {
-    position: fixed;
-    top: 50vh;
-}
-.nextBook {
-    right: 5px;
-}
-.prevBook {
-    left: 5px;
-}
-*/

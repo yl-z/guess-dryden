@@ -6,11 +6,11 @@ TODO: rebuild this and the latin cleaner to catch the 1-2 missing lines in each 
 hopefully make the algorithm more general so this is less of a hassle
 '''
 
-import pandas as pd
 import re
-from splinter import Browser
-from bs4 import BeautifulSoup
 
+import pandas as pd
+from bs4 import BeautifulSoup
+from splinter import Browser
 
 executable_path = {'executable_path': '/Applications/chromedriver'}
 browser = Browser('chrome', **executable_path, headless=False)

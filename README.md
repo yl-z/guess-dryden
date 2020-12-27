@@ -1,6 +1,16 @@
 # guess-dryden
-trying to visualize how far machine translation can currently take us towards high-brow literary translation
+a visual exploration of the relationship between literary and machine translation
 
-Currently, this project contains twelve books of the Aeneid (in both Latin and Dryden's highly literary English) scraped from the web and passed through the Google Translate API. 
-Edit distance is used to match translation results with the target language text. The resulting graphs (data in json files) show where a lot of literary license was taken and which lines in a relevant neighbourhood can be guessed to have "come from" which original line.
-I am still working on the javascript for displaying this dynamically on a webpage. 
+Try it here: https://yl-z.github.io/guess-dryden/
+
+Taking parts of the Aeneid (in [Latin](http://www.thelatinlibrary.com/verg.html) and [Dryden's highly literary English](https://quod.lib.umich.edu/cgi/t/text/text-idx?c=eebo;idno=A65112.0001.001)), lines are matched with the help of Google Translate. Having translated each line to the opposite language, a token-based string distance is computed and shown as dark to light values (darkest meaning closest). Hover over the lines to view this as well as the intermediary machine translated line. 
+
+Currently, the data is pretty noisy, but some lines are showing promise:
+<img src="demo/latToEng1.png" alt="a match between 'Mūsa, mihī causās memorā' and 'O Muse! the Causes and the Crimes relate'">
+<img src="demo/latToEng2.png" alt="a match between 'genus unde Latīnum, Albānīque patrēs' and 'From whence the Race of Alban Fathers come'">
+<img src="demo/engToLat.png" alt="a match between 'And rowl the foaming Billows to the Shoar' and 'Africus, et vastos volvunt ad litora fluctus'">
+
+## Next Steps
+- add a prior based on the place in the text (e.g. a rolling window)
+- link a dictionary, thesaurus, or other lexicon instead of Google translate
+- clean up the data processing steps so different texts can be quickly compared
